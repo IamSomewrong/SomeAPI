@@ -1,3 +1,5 @@
+using SomeAPI;
+
 public class Program
 {
     private static void Main(string[] args)
@@ -10,7 +12,7 @@ public class Program
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
-        builder.Services.AddHealthChecks();
+        builder.Services.AddHealthChecks().AddCheck<HealthCheck>("Health1");
 
         var app = builder.Build();
 

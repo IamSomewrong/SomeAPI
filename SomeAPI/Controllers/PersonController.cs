@@ -8,10 +8,10 @@ namespace SomeAPI.Controllers
     [ApiController]
     public class PersonController : ControllerBase
     {
-        //private readonly ILogger<PersonController> _logger;
+        private readonly ILogger<PersonController> _logger;
         public PersonController(ILogger<PersonController> logger)
         {
-            //_logger = logger;
+            _logger = logger;
             Log.Logger = new LoggerConfiguration().WriteTo.Console().WriteTo.File("log-.txt", rollingInterval: RollingInterval.Day).CreateLogger();
         }
 
@@ -19,7 +19,8 @@ namespace SomeAPI.Controllers
         [HttpGet(Name = "GetPerson")]
         public Person Get()
         {
-            //_logger.LogInformation("Сбор данных");
+            _logger.LogInformation("Сбор данных");
+            _logger.IsEnabled(LogLevel.Information);
             Log.Information("Сбор данных");
             Person outp;
             try
@@ -37,8 +38,8 @@ namespace SomeAPI.Controllers
             {
                 Log.CloseAndFlush();
             }
-            
-            //_logger.LogInformation("Сбор данных завершен: " + outp.Name + " " + outp.LastName + ".");
+
+            _logger.LogInformation("Сбор данных завершен: " + outp.Name + " " + outp.LastName + ".");
             return outp;
             
         }

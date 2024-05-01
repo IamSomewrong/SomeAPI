@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc.Testing;
+Ôªøusing Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using System.Net;
 
@@ -24,7 +24,7 @@ namespace ApiTestProject
             Assert.Equal(HttpStatusCode.OK, response.StatusCode);
             Assert.Equal("application/json", response.Content.Headers.ContentType.MediaType);
             var content = await response.Content.ReadAsStringAsync();
-            Assert.Contains("»‚‡Ì", content);
+            Assert.Contains("–ò–≤–∞–Ω", content);
             Assert.True((end - start).TotalMilliseconds < 2000);
         }
     }

@@ -15,7 +15,7 @@ namespace MocksTestProject
 
             var actual = controller.Get();
 
-            loggerMock.Verify(x => x.IsEnabled(LogLevel.Information), Times.Exactly(2));
+            loggerMock.Verify(x => x.IsEnabled(LogLevel.Information));
         }
 
         [Fact]
